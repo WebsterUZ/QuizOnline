@@ -24,8 +24,8 @@ export default function GroupQuiz() {
     }
     const socket = socketRef.current;
 
-    socket.on('player-joined', ({ player }) => {
-      setPlayers((prev) => Array.from(new Set([...prev, player])));
+    socket.on('players-update', ({ players }) => {
+      setPlayers(players);
     });
     socket.on('quiz-started', () => {
       setStep('quiz');
@@ -133,8 +133,10 @@ export default function GroupQuiz() {
           <div className="mb-4">Xona ID: <span className="font-mono">{roomId}</span></div>
           <div className="mb-4">Ishtirokchilar:</div>
           <ul className="mb-4">
-            {players.map((p) => (
-              <li key={p}>{p}</li>
+            {players.map((p, idx) => (
+              <li key={p}>
+                {p} {idx === 0 && <span className="text-xs text-green-600 font-bold">(moderator)</span>}
+              </li>
             ))}
           </ul>
           {players[0] === player && (
@@ -159,12 +161,14 @@ export default function GroupQuiz() {
             <h2 className="text-xl font-semibold">
               Savol {currentQuestion + 1} / {quizData.length}
             </h2>
-            <button
-              onClick={handleFinish}
-              className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-200"
-            >
-              Stop
-            </button>
+            {players[0] === player && (
+              <button
+                onClick={handleFinish}
+                className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-200"
+              >
+                Stop
+              </button>
+            )}
           </div>
           <div className="mb-8">
             <h3 className="text-xl font-bold mb-4">{quizData[currentQuestion].question}</h3>

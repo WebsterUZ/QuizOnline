@@ -17,7 +17,22 @@ export default function handler(req, res) {
       // Xonaga qo'shilish
       socket.on('join-room', ({ roomId, player }) => {
         socket.join(roomId);
-        io.to(roomId).emit('player-joined', { player });
+        socket.playerName = player;
+        // Xonadagi barcha socketlarni topamiz
+        const clients = Array.from(io.sockets.adapter.rooms.get(roomId) || []);
+        const playerNames = clients.map(id => io.sockets.sockets.get(id)?.playerName).filter(Boolean);
+        io.to(roomId).emit('players-update', { players: playerNames });
+      });
+
+      // Disconnect bo'lsa, ro'yxatni yangilash
+      socket.on('disconnect', () => {
+        // Har bir xonani tekshiramiz
+        const rooms = Array.from(socket.rooms).filter(r => r !== socket.id);
+        rooms.forEach(roomId => {
+          const clients = Array.from(io.sockets.adapter.rooms.get(roomId) || []);
+          const playerNames = clients.map(id => io.sockets.sockets.get(id)?.playerName).filter(Boolean);
+          io.to(roomId).emit('players-update', { players: playerNames });
+        });
       });
 
       // Testni boshlash
