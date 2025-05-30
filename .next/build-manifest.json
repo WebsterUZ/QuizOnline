@@ -1,41 +1,46 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills.js"
+    "static/chunks/polyfills-42372ed130431b0a.js"
   ],
-  "devFiles": [
-    "static/chunks/react-refresh.js"
-  ],
+  "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/development/_buildManifest.js",
-    "static/development/_ssgManifest.js"
+    "static/ERjTnHgANYbrZn-e7lCyB/_buildManifest.js",
+    "static/ERjTnHgANYbrZn-e7lCyB/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
     "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
+      "static/chunks/webpack-8fa1640cc84ba8fe.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-bbffbf57667a37fe.js",
+      "static/chunks/pages/index-2a2f2e202409456e.js"
     ],
     "/_app": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/_app.js"
+      "static/chunks/webpack-8fa1640cc84ba8fe.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-bbffbf57667a37fe.js",
+      "static/css/8ed3eee435c6d38e.css",
+      "static/chunks/pages/_app-87cee5540118d1b4.js"
     ],
     "/_error": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/_error.js"
+      "static/chunks/webpack-8fa1640cc84ba8fe.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-bbffbf57667a37fe.js",
+      "static/chunks/pages/_error-7a92967bea80186d.js"
     ],
     "/group-quiz": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/group-quiz.js"
+      "static/chunks/webpack-8fa1640cc84ba8fe.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-bbffbf57667a37fe.js",
+      "static/chunks/642-308d872b9525afc6.js",
+      "static/chunks/pages/group-quiz-9e5b180013ed3a76.js"
     ],
     "/solo-quiz": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/solo-quiz.js"
+      "static/chunks/webpack-8fa1640cc84ba8fe.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-bbffbf57667a37fe.js",
+      "static/chunks/pages/solo-quiz-52d3e88681e21485.js"
     ]
   },
   "ampFirstPages": []
